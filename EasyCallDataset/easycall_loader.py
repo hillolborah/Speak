@@ -1,6 +1,6 @@
 from datasets import load_dataset
 import re
-
+import numpy as np
 
 class EasyCallDataset:
 
@@ -64,8 +64,12 @@ class EasyCallDataset:
         if self.normalize:
             transcript = self.normalize_text(transcript)
 
+        #convert to whisper input type(float32)
+        audio = sample["audio"]["array"].astype(np.float32)
+
         return {
-            "audio": sample["audio"]["array"],
+            # "audio": sample["audio"]["array"],
+            "audio": audio,
             "sampling_rate": sample["audio"]["sampling_rate"],
             "transcript": transcript,
             "speaker": sample["speaker"],
