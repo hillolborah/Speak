@@ -1,0 +1,2 @@
+Problem Identification:
+Impaired speech presents a significant challenge for conventional voice-driven interfaces.
